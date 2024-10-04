@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search</title>
+    <link rel="stylesheet" href="check.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet"> <!-- Font Import -->
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="images/logo-ft.jpeg" alt="Logo" class="logo">
+      <h1>PlaneRadar</h1>
+    </div>
+    <div class="header-buttons">
+      <button id="viewMapButton" class="header-button">View Map</button>
+      <button id="logoutButton" class="header-button">Logout</button>
+    </div>
+  </header>
+  
+  <div class="container">
+    <!-- Toggle buttons -->
+    <div class="toggle-buttons">
+      <button id="toggleRoute">Search by Route</button>
+      <button id="toggleFlight">Search by Flight Number</button>
+    </div>
+  </div>
+
+  <!-- Search by Route Form -->
+  <div id="routeForm" class="form-box">
+    <h2>Search Flight by Route</h2>
+    <form id="flightSearchByRouteForm">
+      <div class="form-group">
+        <label for="departureAirport">Departure Airport:</label>
+        <select id="departureAirport" name="departureAirport" required>
+          <option value="">Select Departure Airport</option>
+          <option value="JFK">John F. Kennedy International (JFK)</option>
+          <option value="LAX">Los Angeles International (LAX)</option>
+          <option value="LHR">London Heathrow (LHR)</option>
+          <option value="DXB">Dubai International (DXB)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="arrivalAirport">Arrival Airport:</label>
+        <select id="arrivalAirport" name="arrivalAirport" required>
+          <option value="">Select Arrival Airport</option>
+          <option value="SIN">Singapore Changi (SIN)</option>
+          <option value="HND">Tokyo Haneda (HND)</option>
+          <option value="CDG">Charles de Gaulle (CDG)</option>
+          <option value="SYD">Sydney Airport (SYD)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="flightDateRoute">Date of Flight:</label>
+        <input type="date" id="flightDateRoute" name="flightDateRoute" required>
+      </div>
+      <div class="form-group">
+        <label for="flightTimeRoute">Flight Time (IST):</label>
+        <input type="time" id="flightTimeRoute" name="flightTimeRoute" required>
+      </div>
+      <button type="submit">Search Flight by Route</button>
+    </form>
+  </div>
+
+  <!-- Search by Flight Number Form -->
+  <div id="flightForm" class="form-box">
+    <h2>Search Flight by Flight Number</h2>
+    <form id="flightSearchByFlightNumberForm">
+      <div class="form-group">
+        <label for="flightNumber">Flight Number:</label>
+        <input type="text" id="flightNumber" name="flightNumber" placeholder="e.g., AI101" required>
+      </div>
+      <button type="submit">Search Flight by Number</button>
+    </form>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 @ JAR Pvt Ltd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the current date
+      const today = new Date();
+      
+      // Format the date to YYYY-MM-DD
+      const formattedDate = today.toISOString().split('T')[0];
+
+      // Set the min attribute of the flightDateRoute input
+      document.getElementById('flightDateRoute').setAttribute('min', formattedDate);
+
+      // Toggle buttons functionality
+      document.getElementById('toggleRoute').addEventListener('click', function () {
+          document.getElementById('routeForm').style.display = 'block';
+          document.getElementById('flightForm').style.display = 'none';
+          this.classList.add('active');
+          document.getElementById('toggleFlight').classList.remove('active');
+      });
+
+      document.getElementById('toggleFlight').addEventListener('click', function () {
+          document.getElementById('flightForm').style.display = 'block';
+          document.getElementById('routeForm').style.display = 'none';
+          this.classList.add('active');
+          document.getElementById('toggleRoute').classList.remove('active');
+      });
+
+      // Add functionality for View Map button
+      document.getElementById('viewMapButton').addEventListener('click', function() {
+        window.location.href = 'map.html'; // Change to your map page URL
+      });
+
+      // Add functionality for Logout button
+      document.getElementById('logoutButton').addEventListener('click', function() {
+        window.location.href = 'login.html'; // Change to your login page URL
+      });
+    });
+  </script>
+</body>
+</html>
+

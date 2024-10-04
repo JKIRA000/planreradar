@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details - PlaneRadar</title>
+    <link rel="stylesheet" href="detaill.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-title">
+            <img src="images/logo-ft.jpeg" alt="Logo" class="logo">
+            <h1>PlaneRadar</h1>
+        </div>
+        <div class="header-buttons">
+            <button class="header-button" onclick="viewMap()">View Map</button>
+            <button class="header-button" onclick="goHome()">Home Page</button> <!-- New Home Page button -->
+            <button class="header-button" onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Flight Details</h2>
+        <div class="flight-info">
+            <p><strong>Flight Number:</strong> <span id="flight-number"></span></p>
+            <p><strong>Airline:</strong> <span id="airline"></span></p>
+            <p><strong>Departure Airport:</strong> <span id="departure-airport"></span></p>
+            <p><strong>Arrival Airport:</strong> <span id="arrival-airport"></span></p>
+            <p><strong>Departure Time:</strong> <span id="departure-time"></span></p>
+            <p><strong>Arrival Time:</strong> <span id="arrival-time"></span></p>
+            <p><strong>Flight Duration:</strong> <span id="flight-duration"></span></p>
+            <p><strong>Status:</strong> <span id="status"></span></p>
+        </div>
+
+        <h3>Route Information</h3>
+        <div class="route-info">
+            <p><strong>Route:</strong> <span id="route"></span></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 @ JAR Pvt Ltd. All rights reserved.</p>
+      </footer>
+
+    <script src="detailll.js"></script> <!-- Link to your JS file -->
+</body>
+</html>
+
+
+
+
+
+
